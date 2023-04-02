@@ -1,13 +1,5 @@
 node {
     def app
-    //-------------------------------------
-    stage('Clean up old images') {
-        echo 'Cleaning up'
-        sh 'docker system prune --force' /* clean up dockerfile images*/
-          
-        
-    }    
-    //--------------------------------------    
     
     stage('Clone repository') {
       
