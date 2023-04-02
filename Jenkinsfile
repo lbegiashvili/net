@@ -8,12 +8,9 @@ node {
     }
 //-------------------------------------
     stage('Clean up old images') {
-        post {
-            always {
-                echo 'Cleaning up'
-                sh 'docker rmi --force $(docker images -a -q)' /* clean up dockerfile images*/
-                    }
-            }
+        echo 'Cleaning up'
+        sh 'docker rmi --force $(docker images -a -q)' /* clean up dockerfile images*/
+          
         
     }    
 //--------------------------------------        
