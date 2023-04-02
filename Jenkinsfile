@@ -6,15 +6,23 @@ node {
 
         checkout scm
     }
-
+//-------------------------------------
+    stage('Clean up old images') {
+        post {
+            always {
+                echo 'Cleaning up'
+                sh 'docker rmi --force $(docker images -a -q)' /* clean up dockerfile images*/
+                    }
+            }
+        
+    }    
+//--------------------------------------        
     stage('Build image') {
   
        app = docker.build("lbegiashvili/test")
     }
 
     //stage('Test image') {
-  
-
     //    app.inside {
     //        sh 'echo "Tests passed"'
     //    }
