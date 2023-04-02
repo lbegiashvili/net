@@ -1,19 +1,21 @@
 node {
     def app
-
-    stage('Clone repository') {
-      
-
-        checkout scm
-    }
-//-------------------------------------
+    //-------------------------------------
     stage('Clean up old images') {
         echo 'Cleaning up'
         sh 'docker rmi --force $(docker images -a -q)' /* clean up dockerfile images*/
           
         
     }    
-//--------------------------------------        
+    //--------------------------------------    
+    
+    stage('Clone repository') {
+      
+
+        checkout scm
+    }
+
+    
     stage('Build image') {
   
        app = docker.build("lbegiashvili/test")
