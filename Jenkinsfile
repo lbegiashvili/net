@@ -19,6 +19,7 @@ node {
     //        sh 'echo "Tests passed"'
     //    }
     // }
+    // 
 
     stage('Push image') {
         
