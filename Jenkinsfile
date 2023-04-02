@@ -3,7 +3,7 @@ node {
     //-------------------------------------
     stage('Clean up old images') {
         echo 'Cleaning up'
-        sh 'docker rmi --force $(docker images -a -q)' /* clean up dockerfile images*/
+        sh 'docker rmi $(docker images -a -q) > /dev/null 2>&1' /* clean up dockerfile images*/
           
         
     }    
