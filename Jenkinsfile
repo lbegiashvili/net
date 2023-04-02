@@ -3,7 +3,7 @@ node {
     //-------------------------------------
     stage('Clean up old images') {
         echo 'Cleaning up'
-        sh 'docker system prune' /* clean up dockerfile images*/
+        sh 'docker system prune --force' /* clean up dockerfile images*/
           
         
     }    
